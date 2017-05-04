@@ -1,3 +1,3 @@
 # Mini-Project
 
-http://54.200.79.2:3000/
+First Try at making a MEAN Stack Trial website. 
