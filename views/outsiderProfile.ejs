@@ -1,0 +1,35 @@
+<% include partials/header %>
+
+<a href=<%= profile_picture %> ><img height="150" width="190"  src= <%= profile_picture %> alt="img."> </a>
+
+<br>
+
+<%=User_name%> links:
+
+  <ul>
+
+    <% links.forEach(function(link){%>
+  <li> <a href=<%= link %> ><%= link %> </a> </li>
+  <% }) %>
+    </ul>
+
+
+
+<br> <br> <br>
+<%=User_name%> images:
+
+<ul>
+
+  <% images.forEach(function(img){%>
+<li>    <a href=<%= img %>><img  src= <%= img %> alt="img."></a>    </li>
+<% }) %>
+  </ul>
+
+</form>
+
+<br>  <br>
+<form method="GET" action="/mainpage">
+<input type= "submit" value = "go to main page">
+</form>
+
+<% include partials/footer %>

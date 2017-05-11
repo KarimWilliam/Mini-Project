@@ -1,0 +1,62 @@
+<% include partials/header %>
+<h2>welcome <%= User_name %> </h2>
+
+ <a href=<%= profile_picture %> ><img height="150" width="190"  src= <%= profile_picture %> alt="img."> </a>
+
+
+<p>change profile picture </p>
+<form method="POST" action="/submit_pic">
+  <input type="hidden" name="user" value=<%= User_name %> />
+  <input type="text"  name= "newlink" placeholder="www.mynewpic.com" required>
+ <button type="submit">Submit </button>
+</form>
+<br>
+
+submit a link to your work
+<form method="POST" action="/submit_link">
+  <input type="hidden" name="user" value=<%= User_name %> />
+  <input type="text"  name= "newlink" placeholder="www.MyWork.com" required>
+ <button type="submit">Submit link</button>
+</form>
+
+
+
+<br>
+
+submit a link to a picture
+<form method="POST" action="/submit_img_link">
+  <input type="hidden" name="user" value=<%= User_name %> />
+  <input type="text"  name= "newlink" placeholder="www.MyImgURL.com" required>
+ <button type="submit">Submit link</button>
+</form>
+
+<br> <br> <br>
+your links:
+
+  <ul>
+
+    <% links.forEach(function(link){%>
+  <li> <a href=<%= link %> ><%= link %> </a> </li>
+  <% }) %>
+    </ul>
+
+
+
+<br> <br> <br>
+your images:
+
+<ul>
+
+  <% images.forEach(function(img){%>
+<li>    <a href=<%= img %>><img  src= <%= img %> alt="img."></a>    </li>
+<% }) %>
+  </ul>
+
+</form>
+
+<br>  <br>
+<form method="GET" action="/mainpage">
+<input type= "submit" value = "go to main page">
+</form>
+
+<% include partials/footer %>

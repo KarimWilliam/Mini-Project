@@ -1,0 +1,72 @@
+<% include partials/header %>
+
+<h1> Register  </h1>
+
+<% if (errors != undefined){ %>
+<ul>
+  <% errors.forEach(function(error){%>
+<li><%= error.msg %> </li>
+<% }) %>
+  </ul>
+<% } %>
+
+
+<%if ( title == 1) { %>
+ <font color="green">you have been registered succesfully!</font>
+<% } %>
+<br>
+
+
+
+<form method="POST" action="/users/add">
+  <label>User Name </label>
+  <br>
+  <input type ="text" name = "User_name">
+  <br>
+  <label>password </label>
+  <br>
+  <input type ="text" name = "password">
+  <br>
+  <label>email </label>
+  <br>
+  <input type ="text" name = "email">
+  <br>
+
+  <div class="form-group" id="studentorclient">
+  <label><input id="r1"  type="radio" name="studentclient" value="student" > student</label>
+  <label><input id="r2"  type="radio" name="studentclient" value="client" > client</label>
+</div>
+
+<br>
+  <input type= "submit" value = "register">
+</form>
+
+<br><br><br>
+
+
+<% if (errors2 != undefined){ %>
+
+<p><%= ' * wrong user/password combination'  %> </p>
+
+<% } %>
+
+
+<h2> Log in </H2>
+<form method="POST" action="/users/login">
+  <label>User Name </label>
+  <br>
+  <input type ="text" name = "User_name">
+  <br>
+  <label>password </label>
+  <br>
+  <input type ="text" name = "password">
+  <br>
+
+<br>
+  <input type= "submit" value = "login">
+</form>
+
+<br>  <br>
+<form method="GET" action="/mainpage">
+<input type= "submit" value = "go to main page">
+</form>

@@ -1,0 +1,30 @@
+<% include partials/header %>
+
+<h1> </h1>
+
+
+  <% users.forEach(function(user){%>
+  <%  if(user.access=="student") { %>
+    <a href=<%= user.profile_picture %> ><img height="100" width="120"  src= <%= user.profile_picture %> alt="img."> </a>
+    <div style= border:10px; border-width: 10px; border-style:solid; border-color: #FF0000;  font-size: 20px;>
+   <%= user.User_name %>
+<ul>
+  <% Len = user.links.length; %>
+<%   for (i = 0; i < Len && i<2 ; i++) {%>
+  <li>   <a href=<%= user.links[i] %> ><%= user.links[i] %> </a>  %> </li>
+<%   }%>
+</ul>
+ </form>
+ <form method="post" action="/user/prof">
+  <input type="hidden" name="user" value=<%= user.User_name %> />
+   <input type= "submit" value = "go to profile page">
+ </form>
+<br><br>
+<% } %>
+<% }) %>
+</div>
+
+
+<form method="GET" action="/">
+<input type= "submit" value = "go to index">
+</form>
